@@ -1,0 +1,36 @@
+//申明是Android程序
+apply plugin: 'com.android.application'
+
+android {
+    //编译SDK的版本
+    compileSdkVersion 23
+    //build Tools的版本
+    buildToolsVersion "24.0.0 rc2"
+
+    defaultConfig {
+        //应用的包名
+        applicationId "com.cw16.camerademo"
+        //最小支持SDK版本
+        minSdkVersion 16
+        //目标SDK版本，备注：如果targetSdkVersion与目标设备的API版本相同时，运行效率可能会高一些。
+        targetSdkVersion 23
+        //程序版本号
+        versionCode 1
+        //程序版本名称
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            //是否进行混淆
+            minifyEnabled false
+            //混淆文件的位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //编译libs目录下的所有jar包
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+}
